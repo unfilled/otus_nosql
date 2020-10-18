@@ -209,14 +209,44 @@ db.students.find ({$or : [{"scores.score" : {$not : {$lte : 90}}}, {"scores.scor
 ```mongo
 db.students.find ({"name" : {$regex : /^a/, $options: 'i'}});
 ```
-Подсчёт максимальной/минимальной/средней оценки по категориям (exam, homework, quiz)
-
+Подсчёт максимальной/минимальной/средней оценки по всем типам (exam, homework, quiz)
+```mongo
+db.students.aggregate ([
+	{$unwind : {path : "$scores"}}, 
+	{$group : {_id:"$scores.type", avg: {$avg: "$scores.score"}, min: {$min: "$scores.score"}, max: {$max: "$scores.score"}}}
+]);
+```
 Подсчёт средней оценки студента и вывод 5 студентов с максимальными средними оценками
+```mongo
+db.students.aggregate ([
+	{$unwind : {path : "$scores"}}, 
+	{$group : {_id:"$name", avg: {$avg: "$scores.score"}}},
+	{$sort: {avg: -1}},
+	{$limit: 5}
+]);
+```
 
 ## Обновление данных
-
-## Создание индексов
-
-## Сравнение производительности
-
-
+Изменить имя студента Piter Parker на Spider Man.
+```mongo
+db.students.update (
+	{"name": "Piter Parker"},
+	{$set : {"name": "Spider Man"}}
+);
+```
+Увеличить все оценки студента с именем Incredible Hulk на 10.
+```mongo
+db.students.update (
+	{"name": "Incredible Hulk"},
+	{$inc: {"scores.$[elem].score": 10}},
+	{multi: true, arrayFilters :[{"elem.score":{$gte: -100}}]}
+);
+```
+Заменить оценку за quiz студента Iron Man.
+```mongo
+db.students.update (
+	{"name": "Iron Man"},
+	{$set: {"scores.$[elem].score": 80}},
+	{multi: true, arrayFilters :[{"elem.type":{$eq: "quiz"}}]}
+);
+```
