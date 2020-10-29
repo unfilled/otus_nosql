@@ -1,4 +1,4 @@
-# ДЗ2 MongoDB 2
+# ДЗ3 MongoDB 2
 
 ## Настройка replica-set
 
