@@ -7,11 +7,12 @@ Redis установлен в Ubuntu 20.04 (WSL2) как stand-alone (apt instal
 Данные добавлялись и вычитывались соответствующими python-скриптами. 
 Тестировалось время загрузки в:
 * [одну строку](https://github.com/unfilled/otus_nosql/blob/master/05_Redis/str.py)
-* [множество строк (каждый элемент массива в json - отдельный ключ)] (https://github.com/unfilled/otus_nosql/blob/master/05_Redis/few%20str.py)
-* [один хэш] (https://github.com/unfilled/otus_nosql/blob/master/05_Redis/hset.py)
-* [одно упорядоченное множество] (https://github.com/unfilled/otus_nosql/blob/master/05_Redis/zadd.py), в качестве "ранга" использовался автоинкремент
-* [один список] (https://github.com/unfilled/otus_nosql/blob/master/05_Redis/list.py)   
-соответственно, после загрузки данные сразу вычитывались в переменную. Замеры выполнялись вручную (вывод времени "до" и "после" в скрипте). 
+* [множество строк (каждый элемент массива в json - отдельный ключ)](https://github.com/unfilled/otus_nosql/blob/master/05_Redis/few%20str.py)
+* [один хэш](https://github.com/unfilled/otus_nosql/blob/master/05_Redis/hset.py)
+* [одно упорядоченное множество](https://github.com/unfilled/otus_nosql/blob/master/05_Redis/zadd.py), в качестве "ранга" использовался автоинкремент
+* [один список](https://github.com/unfilled/otus_nosql/blob/master/05_Redis/list.py)   
+
+После загрузки данные сразу вычитывались в переменную. Замеры выполнялись вручную (вывод времени "до" и "после" в скрипте). 
 После каждого запуска, руками выполнялся flushall в redis-cli.
 
 Запись / чтение одной строки:
