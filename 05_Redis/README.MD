@@ -9,7 +9,7 @@ Redis установлен в Ubuntu 20.04 (WSL2) как stand-alone (apt instal
 * [одну строку](https://github.com/unfilled/otus_nosql/blob/master/05_Redis/str.py)
 * [множество строк (каждый элемент массива в json - отдельный ключ)](https://github.com/unfilled/otus_nosql/blob/master/05_Redis/few%20str.py)
 * [один хэш](https://github.com/unfilled/otus_nosql/blob/master/05_Redis/hset.py)
-* [одно упорядоченное множество](https://github.com/unfilled/otus_nosql/blob/master/05_Redis/zadd.py), в качестве "ранга" использовался автоинкремент
+* [одно упорядоченное множество](https://github.com/unfilled/otus_nosql/blob/master/05_Redis/zadd.py), в качестве "ранга" использовался инкремент
 * [один список](https://github.com/unfilled/otus_nosql/blob/master/05_Redis/list.py)   
 
 После загрузки данные сразу вычитывались в переменную. Замеры выполнялись вручную (вывод времени "до" и "после" в скрипте). 
