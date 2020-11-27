@@ -2,15 +2,15 @@
 
 Redis установлен в Ubuntu 20.04 (WSL2) как stand-alone (apt install redis-server), для записи/чтения используется python3 и redis-py.
 
-В качестве большого json использовался файл json.big (приложен), размером около 25 МБ, сгенерированный с помощью  [генератора json'ов](https://www.json-generator.com)
+В качестве большого json использовался файл [json.big] (https://github.com/unfilled/otus_nosql/blob/master/05_Redis/big.json), размером около 25 МБ, сгенерированный с помощью  [генератора json'ов](https://www.json-generator.com)
 
 Данные добавлялись и вычитывались соответствующими python-скриптами. 
 Тестировалось время загрузки в:
-* одну строку (set)
-* множество строк (каждый элемент массива в json - отдельный ключ)
-* один хэш (hset)
-* одно упорядоченное множество (zadd), в качестве "ранга" использовался автоинкремент
-* один список   
+* [одну строку] (https://github.com/unfilled/otus_nosql/blob/master/05_Redis/str.py)
+* [множество строк (каждый элемент массива в json - отдельный ключ)] (https://github.com/unfilled/otus_nosql/blob/master/05_Redis/few%20str.py)
+* [один хэш] (https://github.com/unfilled/otus_nosql/blob/master/05_Redis/hset.py)
+* [одно упорядоченное множество] (https://github.com/unfilled/otus_nosql/blob/master/05_Redis/zadd.py), в качестве "ранга" использовался автоинкремент
+* [один список] (https://github.com/unfilled/otus_nosql/blob/master/05_Redis/list.py)   
 соответственно, после загрузки данные сразу вычитывались в переменную. Замеры выполнялись вручную (вывод времени "до" и "после" в скрипте). 
 После каждого запуска, руками выполнялся flushall в redis-cli.
 
