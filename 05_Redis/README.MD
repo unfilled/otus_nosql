@@ -6,7 +6,7 @@ Redis установлен в Ubuntu 20.04 (WSL2) как stand-alone (apt instal
 
 Данные добавлялись и вычитывались соответствующими python-скриптами. 
 Тестировалось время загрузки в:
-* [одну строку] (https://github.com/unfilled/otus_nosql/blob/master/05_Redis/str.py)
+* [одну строку](https://github.com/unfilled/otus_nosql/blob/master/05_Redis/str.py)
 * [множество строк (каждый элемент массива в json - отдельный ключ)] (https://github.com/unfilled/otus_nosql/blob/master/05_Redis/few%20str.py)
 * [один хэш] (https://github.com/unfilled/otus_nosql/blob/master/05_Redis/hset.py)
 * [одно упорядоченное множество] (https://github.com/unfilled/otus_nosql/blob/master/05_Redis/zadd.py), в качестве "ранга" использовался автоинкремент
