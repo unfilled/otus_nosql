@@ -427,7 +427,6 @@ SELECT
     (100. * goal_visits) / visits AS goal_percent
 FROM otus.visits_v1
 WHERE (CounterID = 912887) AND (toYYYYMM(StartDate) = 201403) AND (domain(StartURL) = 'yandex.ru');
-
 --1 rows in set. Elapsed: 0.011 sec. Processed 16.38 thousand rows, 3.28 MB (1.55 million rows/s., 309.67 MB/s.)
 
 SELECT
@@ -440,7 +439,6 @@ SELECT COUNT(DISTINCT CounterID)
 FROM otus.visits_v1;
 --1 rows in set. Elapsed: 0.021 sec. Processed 1.68 million rows, 6.71 MB (81.38 million rows/s., 325.52 MB/s.)
 
-
 SELECT CounterID, COUNT(*) AS cnt
 FROM otus.visits_v1
 GROUP BY CounterID 
@@ -448,4 +446,3 @@ ORDER BY cnt DESC
 LIMIT 15;
 --15 rows in set. Elapsed: 0.020 sec. Processed 1.68 million rows, 6.71 MB (84.58 million rows/s., 338.30 MB/s.)
 ```
-
