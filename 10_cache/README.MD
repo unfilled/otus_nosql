@@ -62,4 +62,15 @@ do ##class(Shop.Company).Populate(10)
 SELECT *
 FROM Shop.Company
 ```
-и получен следующий ![скриншот](https://github.com/unfilled/otus_nosql/blob/master/10_cache/screenshots/1_select.png)
+и получен следующий скриншот
+![скриншот](https://github.com/unfilled/otus_nosql/blob/master/10_cache/screenshots/1_select.png)
+
+Далее на портале был открыт глобал Shop.CompanyD. Его содержимое на скриншоте:
+![скриншот2](https://github.com/unfilled/otus_nosql/blob/master/10_cache/screenshots/2_globals.png)
+
+В класс был добавлен индек по Name и в терминале было добавлено ещё 5 записей:
+```
+do ##class(Shop.Company).Populate(5)
+```
+Появился глобал Shop.CompanyI, его содержимое на скриншоте:
+![скриншот3](https://github.com/unfilled/otus_nosql/blob/master/10_cache/screenshots/3_gloabls_I.png)
