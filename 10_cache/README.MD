@@ -68,7 +68,7 @@ FROM Shop.Company
 Далее на портале был открыт глобал Shop.CompanyD. Его содержимое на скриншоте:
 ![скриншот2](https://github.com/unfilled/otus_nosql/blob/master/10_cache/screenshots/2_globals.png)
 
-В класс был добавлен индек по Name и в терминале было добавлено ещё 5 записей:
+В класс был добавлен индекс по Name и в терминале было добавлено ещё 5 записей:
 ```
 do ##class(Shop.Company).Populate(5)
 ```
