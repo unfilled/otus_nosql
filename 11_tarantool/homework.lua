@@ -94,7 +94,7 @@ f_cash_in(b.id, 6, ffi.cast('double', 100))
 f_change_cost(v.id, ffi.cast('double', 35))
 b:select{}
 
-fiber.sleep(4)
+fiber.sleep(5)
 
 b:select{}
 
