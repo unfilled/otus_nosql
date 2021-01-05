@@ -16,7 +16,7 @@ sudo cp /mnt/d/temp/expirationd.lua /usr/share/tarantool/expirationd.lua
 1) таблица (box.space['balance']), содержащая счёт, текущий баланс и статус (active для счетов, с которых производятся ежесекундные списания и suspended для счетов, с нулевым и отрицательным балансом, списания с которых не производятся);
 2) таблица (box.space['value']), содержащая одну запись - ежесекундный расход средств.
 
-```
+```lua
 ffi = require('ffi')
 
 box.cfg{}
