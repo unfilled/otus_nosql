@@ -1,6 +1,6 @@
 # 12 Neo4j
 
-Neo4j был запущен из контейнера (Docker Desktop, Win 10):
+Neo4j был запущен из контейнера (Docker Desktop, Win 10 Home, WSL2 enabled):
 ```bash
 docker run --name testneo4j -p7474:7474 -p7687:7687 -d -v $HOME/neo4j/data:/data -v $HOME/neo4j/logs:/logs -v $HOME/neo4j/import:/var/lib/neo4j/import -v $HOME/neo4j/plugins:/plugins --env NEO4J_AUTH=neo4j/test neo4j:latest
 ```
@@ -88,6 +88,12 @@ MATCH (m)<-[o:OWES_TO]-(:male)
 RETURN m.Name, SUM(o.sum) AS sum
 ORDER BY sum DESC
 LIMIT 1
+```
+7) Вывод имён женщин и количества других женщин, которым они нравятся:
+```
+MATCH (f)<-[:LIKES]-()
+RETURN f.Name, COUNT(*) AS Power
+ORDER BY Power DESC
 ```
 
 Удаление всех узлов и связей:
