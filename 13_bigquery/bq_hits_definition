@@ -1,0 +1,603 @@
+[
+    {
+        "name": "WatchID",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "JavaEnable",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Title",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "GoodEvent",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "EventTime",
+        "type": "DATETIME",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "EventDate",
+        "type": "DATE",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CounterID",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ClientIP",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "ClientIP6",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "RegionID",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "UserID",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CounterClass",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "OS",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "UserAgent",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "URL",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Referer",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "URLDomain",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "RefererDomain",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Refresh",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "IsRobot",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "RefererCategories",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "value",
+                "type": "INTEGER",
+                "mode": "NULLABLE"
+            }
+        ]
+    },
+    {
+        "name": "URLCategories",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "value",
+                "type": "INTEGER"
+            }
+        ]
+    },
+    {
+        "name": "URLRegions",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "value",
+                "type": "INTEGER"
+            }
+        ]
+    },
+    {
+        "name": "RefererRegions",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "value",
+                "type": "INTEGER"
+            }
+        ]
+    },
+    {
+        "name": "ResolutionWidth",
+        "type": "INTEGER"
+    },
+    {
+        "name": "ResolutionHeight",
+        "type": "INTEGER"
+    },
+    {
+        "name": "ResolutionDepth",
+        "type": "INTEGER"
+    },
+    {
+        "name": "FlashMajor",
+        "type": "INTEGER"
+    },
+    {
+        "name": "FlashMinor",
+        "type": "INTEGER"
+    },
+    {
+        "name": "FlashMinor2",
+        "type": "STRING"
+    },
+    {
+        "name": "NetMajor",
+        "type": "INTEGER"
+    },
+    {
+        "name": "NetMinor",
+        "type": "INTEGER"
+    },
+    {
+        "name": "UserAgentMajor",
+        "type": "INTEGER"
+    },
+    {
+        "name": "UserAgentMinor",
+        "type": "STRING"
+    },
+    {
+        "name": "CookieEnable",
+        "type": "INTEGER"
+    },
+    {
+        "name": "JavascriptEnable",
+        "type": "INTEGER"
+    },
+    {
+        "name": "IsMobile",
+        "type": "INTEGER"
+    },
+    {
+        "name": "MobilePhone",
+        "type": "INTEGER"
+    },
+    {
+        "name": "MobilePhoneModel",
+        "type": "INTEGER"
+    },
+    {
+        "name": "Params",
+        "type": "STRING"
+    },
+    {
+        "name": "IPNetworkID",
+        "type": "INTEGER"
+    },
+    {
+        "name": "TraficSourceID",
+        "type": "INTEGER"
+    },
+    {
+        "name": "SearchEngineID",
+        "type": "INTEGER"
+    },
+    {
+        "name": "SearchPhrase",
+        "type": "STRING"
+    },
+    {
+        "name": "AdvEngineID",
+        "type": "INTEGER"
+    },
+    {
+        "name": "IsArtifical",
+        "type": "INTEGER"
+    },
+    {
+        "name": "WindowClientWidth",
+        "type": "INTEGER"
+    },
+    {
+        "name": "WindowClientHeight",
+        "type": "INTEGER"
+    },
+    {
+        "name": "ClientTimeZone",
+        "type": "INTEGER"
+    },
+    {
+        "name": "ClientEventTime",
+        "type": "DATETIME"
+    },
+    {
+        "name": "SilverlightVersion1",
+        "type": "INTEGER"
+    },
+    {
+        "name": "SilverlightVersion2",
+        "type": "INTEGER"
+    },
+    {
+        "name": "SilverlightVersion3",
+        "type": "INTEGER"
+    },
+    {
+        "name": "SilverlightVersion4",
+        "type": "INTEGER"
+    },
+    {
+        "name": "PageCharset",
+        "type": "STRING"
+    },
+    {
+        "name": "CodeVersion",
+        "type": "INTEGER"
+    },
+    {
+        "name": "IsLink",
+        "type": "INTEGER"
+    },
+    {
+        "name": "IsDownload",
+        "type": "INTEGER"
+    },
+    {
+        "name": "IsNotBounce",
+        "type": "INTEGER"
+    },
+    {
+        "name": "FUniqID",
+        "type": "INTEGER"
+    },
+    {
+        "name": "HID",
+        "type": "INTEGER"
+    },
+    {
+        "name": "IsOldCounter",
+        "type": "INTEGER"
+    },
+    {
+        "name": "IsEvent",
+        "type": "INTEGER"
+    },
+    {
+        "name": "IsParameter",
+        "type": "INTEGER"
+    },
+    {
+        "name": "DontCountHits",
+        "type": "INTEGER"
+    },
+    {
+        "name": "WithHash",
+        "type": "INTEGER"
+    },
+    {
+        "name": "HitColor",
+        "type": "STRING"
+    },
+    {
+        "name": "UTCEventTime",
+        "type": "DATETIME"
+    },
+    {
+        "name": "Age",
+        "type": "INTEGER"
+    },
+    {
+        "name": "Sex",
+        "type": "INTEGER"
+    },
+    {
+        "name": "Income",
+        "type": "INTEGER"
+    },
+    {
+        "name": "Interests",
+        "type": "INTEGER"
+    },
+    {
+        "name": "Robotness",
+        "type": "INTEGER"
+    },
+    {
+        "name": "GeneralInterests",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "value",
+                "type": "INTEGER"
+            }
+        ]
+    },
+    {
+        "name": "RemoteIP",
+        "type": "INTEGER"
+    },
+    {
+        "name": "RemoteIP6",
+        "type": "STRING"
+    },
+    {
+        "name": "WindowName",
+        "type": "INTEGER"
+    },
+    {
+        "name": "OpenerName",
+        "type": "INTEGER"
+    },
+    {
+        "name": "HistoryLength",
+        "type": "INTEGER"
+    },
+    {
+        "name": "BrowserLanguage",
+        "type": "STRING"
+    },
+    {
+        "name": "BrowserCountry",
+        "type": "STRING"
+    },
+    {
+        "name": "SocialNetwork",
+        "type": "STRING"
+    },
+    {
+        "name": "SocialAction",
+        "type": "STRING"
+    },
+    {
+        "name": "HTTPError",
+        "type": "INTEGER"
+    },
+    {
+        "name": "SendTiming",
+        "type": "INTEGER"
+    },
+    {
+        "name": "DNSTiming",
+        "type": "INTEGER"
+    },
+    {
+        "name": "ConnectTiming",
+        "type": "INTEGER"
+    },
+    {
+        "name": "ResponseStartTiming",
+        "type": "INTEGER"
+    },
+    {
+        "name": "ResponseEndTiming",
+        "type": "INTEGER"
+    },
+    {
+        "name": "FetchTiming",
+        "type": "INTEGER"
+    },
+    {
+        "name": "RedirectTiming",
+        "type": "INTEGER"
+    },
+    {
+        "name": "DOMInteractiveTiming",
+        "type": "INTEGER"
+    },
+    {
+        "name": "DOMContentLoadedTiming",
+        "type": "INTEGER"
+    },
+    {
+        "name": "DOMCompleteTiming",
+        "type": "INTEGER"
+    },
+    {
+        "name": "LoadEventStartTiming",
+        "type": "INTEGER"
+    },
+    {
+        "name": "LoadEventEndTiming",
+        "type": "INTEGER"
+    },
+    {
+        "name": "NSToDOMContentLoadedTiming",
+        "type": "INTEGER"
+    },
+    {
+        "name": "FirstPaintTiming",
+        "type": "INTEGER"
+    },
+    {
+        "name": "RedirectCount",
+        "type": "INTEGER"
+    },
+    {
+        "name": "SocialSourceNetworkID",
+        "type": "INTEGER"
+    },
+    {
+        "name": "SocialSourcePage",
+        "type": "STRING"
+    },
+    {
+        "name": "ParamPrice",
+        "type": "INTEGER"
+    },
+    {
+        "name": "ParamOrderID",
+        "type": "STRING"
+    },
+    {
+        "name": "ParamCurrency",
+        "type": "STRING"
+    },
+    {
+        "name": "ParamCurrencyID",
+        "type": "INTEGER"
+    },
+    {
+        "name": "GoalsReached",
+        "type": "RECORD",
+        "mode": "REPEATED",
+        "fields": [
+            {
+                "name": "value",
+                "type": "INTEGER"
+            }
+        ]
+    },
+    {
+        "name": "OpenstatServiceName",
+        "type": "STRING"
+    },
+    {
+        "name": "OpenstatCampaignID",
+        "type": "STRING"
+    },
+    {
+        "name": "OpenstatAdID",
+        "type": "STRING"
+    },
+    {
+        "name": "OpenstatSourceID",
+        "type": "STRING"
+    },
+    {
+        "name": "UTMSource",
+        "type": "STRING"
+    },
+    {
+        "name": "UTMMedium",
+        "type": "STRING"
+    },
+    {
+        "name": "UTMCampaign",
+        "type": "STRING"
+    },
+    {
+        "name": "UTMContent",
+        "type": "STRING"
+    },
+    {
+        "name": "UTMTerm",
+        "type": "STRING"
+    },
+    {
+        "name": "FromTag",
+        "type": "STRING"
+    },
+    {
+        "name": "HasGCLID",
+        "type": "INTEGER"
+    },
+    {
+        "name": "RefererHash",
+        "type": "INTEGER"
+    },
+    {
+        "name": "URLHash",
+        "type": "INTEGER"
+    },
+    {
+        "name": "CLID",
+        "type": "INTEGER"
+    },
+    {
+        "name": "YCLID",
+        "type": "INTEGER"
+    },
+    {
+        "name": "ShareService",
+        "type": "STRING"
+    },
+    {
+        "name": "ShareURL",
+        "type": "STRING"
+    },
+    {
+        "name": "ShareTitle",
+        "type": "STRING"
+    },
+    {
+        "name": "ParsedParams",
+        "type": "RECORD",
+        "fields": [
+            {
+                "name": "Key1",
+                "type": "STRING"
+            },
+            {
+                "name": "Key2",
+                "type": "STRING"
+            },
+            {
+                "name": "Key3",
+                "type": "STRING"
+            },
+            {
+                "name": "Key4",
+                "type": "STRING"
+            },
+            {
+                "name": "Key5",
+                "type": "STRING"
+            },
+            {
+                "name": "ValueDouble",
+                "type": "FLOAT"
+            }
+        ]
+    },
+    {
+        "name": "IslandID",
+        "type": "STRING"
+    },
+    {
+        "name": "RequestNum",
+        "type": "INTEGER"
+    },
+    {
+        "name": "RequestTry",
+        "type": "INTEGER"
+    }
+]
