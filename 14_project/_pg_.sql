@@ -9,6 +9,8 @@ host    all             otus            0.0.0.0/0               md5
 
 
 
-CREATE TABLE test (id bigserial PRIMARY KEY, eventdate timestamp without time zone default now(), data jsonb);
+CREATE TABLE test (id bigserial PRIMARY KEY, eventdate timestamp without time zone default now(), someuuid uuid, data jsonb);
 
+CREATE INDEX ix_someuuid ON test (someuuid);
 
+CREATE INDEX ix_eventdate ON test (eventdate);

@@ -1,0 +1,8 @@
+--1
+SELECT COUNT(*)
+FROM otus.test;
+
+/*
+
+
+*/

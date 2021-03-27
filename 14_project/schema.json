@@ -1,0 +1,11 @@
+{
+    "id": "Faker.uuid4()",
+    "correlation_id": "Faker.uuid4()",
+    "company": "Faker.company()",
+    "iban": "Faker.iban()",
+    "series": "Faker.random_choices(elements= (Faker.random_digit(), Faker.random_digit(),Faker.random_digit(),Faker.random_digit()))",
+    "md5": "fake.md5(raw_output=False)",
+    "insurer": "Faker.profile()",
+    "car": "Faker.machine_object()",
+    "drivers": "fake.random_choices(elements=(fake.profile(), fake.profile(), fake.profile(), fake.profile(), fake.profile()))"
+}
