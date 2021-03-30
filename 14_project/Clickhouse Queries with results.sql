@@ -1,6 +1,6 @@
 --1
 SELECT COUNT(id) 
-FROM otus.test2;
+FROM otus.test;
 /*
 1. Elapsed: 0.185 sec. Processed 20.00 million rows, 40.00 MB (107.87 million rows/s., 215.74 MB/s.)
 
@@ -9,7 +9,7 @@ FROM otus.test2;
 
 --2
 SELECT starts, COUNT(*) as cnt
-FROM otus.test2
+FROM otus.test
 GROUP BY starts
 ORDER BY cnt DESC
 LIMIT 10;
@@ -22,13 +22,13 @@ LIMIT 10;
 
 --3.
 SELECT userid, SUM(premium) AS summary, SUM(payout)/NULLIF(SUM(cases), 0) average_payout
-FROM otus.test2
+FROM otus.test
 GROUP BY userid
 ORDER BY average_payout DESC
 LIMIT 10;
 
 /*
-1. Elapsed: 0.348 sec. Processed 20.00 million rows, 320.00 MB (57.45 million rows/s., 919.21 MB/s.)
+1. Elapsed: 1.289 sec. Processed 20.00 million rows, 320.00 MB (15.52 million rows/s., 248.29 MB/s.)
 
 2. Elapsed: 0.372 sec. Processed 20.00 million rows, 320.00 MB (53.82 million rows/s., 861.06 MB/s.)
 
@@ -42,7 +42,7 @@ SELECT filial, premium_sum, premium_sum*100./pct AS pctg
         filial, 
         SUM(premium) premium_sum, 
         SUM(SUM(premium)) OVER() AS pct
-    FROM otus.test2
+    FROM otus.test
     GROUP BY filial    
     )x
 ORDER BY pctg DESC
@@ -59,7 +59,7 @@ LIMIT 10;
 SELECT 
     filial, 
     SUM(premium) - SUM(payout) t
-FROM otus.test2
+FROM otus.test
 GROUP BY filial
 ORDER BY t DESC
 LIMIT 10;
@@ -72,7 +72,7 @@ LIMIT 10;
 
 --6
 SELECT TOP 10 *
-FROM otus.test2;
+FROM otus.test;
 
 /*
 1... 10 rows in set. Elapsed: 0.175 sec.
@@ -89,10 +89,10 @@ FROM
         userid, 
         SUM(premium) AS pr,
         row_number() OVER (PARTITION BY filial ORDER BY pr DESC) rn
-    FROM otus.test2
+    FROM otus.test
     WHERE filial IN (
         SELECT filial
-        FROM otus.test2
+        FROM otus.test
         GROUP BY filial 
         ORDER BY SUM(payout) DESC
         LIMIT 10
@@ -115,7 +115,7 @@ SELECT
     COUNT(*) AS payments,
     SUM(premium) AS sum,
     SUM(premium) / COUNT(*)  AS average_payment
-FROM otus.test2
+FROM otus.test
 GROUP BY card_provider
 ORDER BY average_payment DESC;
 
@@ -134,7 +134,7 @@ FROM
         COUNT(*) AS contracts,
         SUM(cases) as cases_by_sex,
         SUM(SUM(cases)) OVER() AS cases_overall
-    FROM otus.test2
+    FROM otus.test
     GROUP BY sex
 )x
 ORDER BY cases_pctg DESC;
@@ -147,18 +147,18 @@ ORDER BY cases_pctg DESC;
 
 --10 Поиск по уникальному id B6FFE30D-F1B7-4DFB-8CA0-1C62CE2D8619
 SELECT COUNT(*)
-FROM otus.test2
+FROM otus.test
 WHERE id = 'B6FFE30D-F1B7-4DFB-8CA0-1C62CE2D8619';
 
 /*
-1. Elapsed: 1.315 sec. Processed 20.00 million rows, 320.00 MB (15.20 million rows/s., 243.27 MB/s.)
+1. Elapsed: 0.173 sec. Processed 20.00 million rows, 320.00 MB (115.61 million rows/s., 1.85 GB/s.)
 
-2. Elapsed: 0.187 sec. Processed 20.00 million rows, 320.00 MB (107.02 million rows/s., 1.71 GB/s.)
+2.Elapsed: 0.131 sec. Processed 20.00 million rows, 320.00 MB (152.09 million rows/s., 2.43 GB/s.)
 */
 
 --11. Поиск по неуникальной строке (100 записей) username lholloway
 SELECT COUNT(*)
-FROM otus.test2
+FROM otus.test
 WHERE username = 'lholloway';
 
 /*
@@ -170,7 +170,7 @@ WHERE username = 'lholloway';
 --12. Количество договоров сотрудника
 
 SELECT COUNT(*)
-FROM otus.test2
+FROM otus.test
 WHERE userid = 7171;
    
 /*
@@ -182,7 +182,7 @@ WHERE userid = 7171;
 --13 COUNT DISTINCT int
 
 SELECT COUNT(DISTINCT userid)
-FROM otus.test2;
+FROM otus.test;
 /*
 1. Elapsed: 0.206 sec. Processed 20.00 million rows, 80.00 MB (97.01 million rows/s., 388.04 MB/s.)
 
@@ -192,17 +192,22 @@ FROM otus.test2;
 --14 COUNT DISTINCT long string
 
 SELECT COUNT(DISTINCT address)
-FROM otus.test2;
+FROM otus.test;
 
 /*
 1. Elapsed: 9.116 sec. Processed 20.00 million rows, 1.03 GB (2.19 million rows/s., 113.45 MB/s.)
 
 2. Elapsed: 4.378 sec. Processed 20.00 million rows, 1.03 GB (4.57 million rows/s., 236.20 MB/s.)
+
+select count(distinct id) from otus.test;
+
+Elapsed: 3.214 sec. Processed 20.00 million rows, 320.00 MB (6.22 million rows/s., 99.57 MB/s.)
+
 */
 
 --15
 SELECT MIN(starts), MAX(starts)
-FROM otus.test2;
+FROM otus.test;
 
 /*
 1. Elapsed: 0.046 sec. Processed 20.00 million rows, 40.00 MB (430.68 million rows/s., 861.35 MB/s.)
@@ -212,7 +217,7 @@ FROM otus.test2;
 
 --16
 SELECT userid, COUNT(*)
-FROM otus.test2
+FROM otus.test
 WHERE userid <> 101
 GROUP BY userid
 ORDER BY COUNT(*) DESC
@@ -226,7 +231,7 @@ LIMIT 10;
 
 --17.
 SELECT region, COUNT(DISTINCT userid) AS u
-FROM otus.test2
+FROM otus.test
 GROUP BY region
 ORDER BY u DESC
 LIMIT 10;
@@ -239,7 +244,7 @@ LIMIT 10;
 
 --18
 SELECT userid, insurer_company, COUNT(*)
-FROM otus.test2
+FROM otus.test
 GROUP BY userid, insurer_company
 ORDER BY COUNT(*) DESC
 LIMIT 10;
@@ -252,7 +257,7 @@ LIMIT 10;
 --19
 
 SELECT userid, insurer_company, COUNT(*)
-FROM otus.test2
+FROM otus.test
 WHERE insurer_company NOT LIKE 'Smith%'
 GROUP BY userid, insurer_company
 ORDER BY COUNT(*) DESC
@@ -265,7 +270,7 @@ LIMIT 10;
 
 --20 
 SELECT TOP 10 userid, insurer_company, COUNT(*)
-FROM otus.test2
+FROM otus.test
 WHERE insurer_company LIKE 'Smith%'
 GROUP BY userid, insurer_company
 ORDER BY COUNT(*) DESC;
@@ -278,7 +283,7 @@ ORDER BY COUNT(*) DESC;
 
 --21.
 SELECT TOP 10 userid, insurer_company, COUNT(*)
-FROM otus.test2
+FROM otus.test
 WHERE insurer_company = 'Smith Inc'
 GROUP BY userid, insurer_company
 ORDER BY COUNT(*) DESC; 
@@ -292,7 +297,7 @@ ORDER BY COUNT(*) DESC;
 --22. Количество действующих договоров
 
 SELECT COUNT(*)
-FROM otus.test2
+FROM otus.test
 WHERE dateDiff('day', starts, now()) < 366;
 
 /*
@@ -303,7 +308,7 @@ WHERE dateDiff('day', starts, now()) < 366;
 
 --22.1
 SELECT COUNT(*)
-FROM otus.test2
+FROM otus.test
 WHERE starts > date_sub(DAY, 366, now());
 
 /* SARGable matters for Clickhouse too
@@ -318,7 +323,7 @@ SELECT
     SUM(CASE WHEN DATEDIFF(YEAR, birthdate, now()) < 20 THEN cases ELSE 0 END) * 100. / SUM(cases) AS young,
     SUM(CASE WHEN DATEDIFF(YEAR, birthdate, now()) >= 20 AND DATEDIFF(YEAR, birthdate, now()) < 40 THEN cases ELSE 0 END) * 100. / SUM(cases) AS mid,
     SUM(CASE WHEN DATEDIFF(YEAR, birthdate, now()) >= 40 THEN cases ELSE 0 END) * 100. / SUM(cases) AS old    
-FROM otus.test2
+FROM otus.test
 GROUP BY sex;
 
 /*
@@ -329,10 +334,10 @@ GROUP BY sex;
 
 --24 Средний возраст машин, попадющих в ДТП чаще других
 SELECT AVG(toYear(now()) - Year)
-FROM otus.test2
+FROM otus.test
 WHERE cases = (
     SELECT MAX(cases)       
-    FROM otus.test2
+    FROM otus.test
 );
 
 /*
@@ -347,7 +352,7 @@ SELECT Category, Make, Model, overall_cases
 FROM
 (
     SELECT Category, Make, Model, SUM(cases) AS overall_cases, row_number() OVER (PARTITION BY Category ORDER BY SUM(cases) DESC) AS rn
-    FROM otus.test2
+    FROM otus.test
     GROUP BY Category, Make, Model
 )t
 WHERE rn < 3;

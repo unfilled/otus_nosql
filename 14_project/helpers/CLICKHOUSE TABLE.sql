@@ -1,4 +1,6 @@
-﻿CREATE TABLE otus.test (
+CREATE DATABASE otus;
+
+CREATE TABLE otus.test2 (
     `id`              UUID,
     `someuuid`        UUID,
     `starts`          Date,
@@ -31,10 +33,8 @@
 )
 ENGINE = MergeTree()
 PARTITION BY toYYYYMM(starts)
-ORDER BY (region, filial, intHash32(userid))
-SAMPLE BY intHash32(userid)
+ORDER BY tuple()
 SETTINGS index_granularity = 8192;
-
 
 
 clickhouse-client --query "INSERT INTO otus.test FORMAT TSV" --max_insert_block_size=100000 < /mnt/e/temp/otus.tsv

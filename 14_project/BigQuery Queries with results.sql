@@ -18,7 +18,9 @@ LIMIT 10;
 
 /*
 1. Query complete (0.7 sec elapsed, 152.6 MB processed)
-
+	
+Slot time consumed 
+2.878 sec
 2. Query complete (0.0 sec elapsed, cached)
 */
 
@@ -32,7 +34,8 @@ LIMIT 10;
 /*
 1. Query complete (1.3 sec elapsed, 610.4 MB processed)
 
-2. Query complete (0.0 sec elapsed, cached)
+2. Slot time consumed 
+12.249 sec
 
 */
 
@@ -40,7 +43,7 @@ LIMIT 10;
 SELECT  
     filial, 
     SUM(premium), 
-    CAST(SUM(premium) AS float) * 100 
+    SUM(premium) * 100.0
         / SUM(SUM(premium)) OVER ()  AS pctg
 FROM `otus-clickhouse-comparsion.otus.test` 
 GROUP BY filial
@@ -50,8 +53,8 @@ LIMIT 10;
 /*
 1. Query complete (2.1 sec elapsed, 420.5 MB processed)
 
-2. SQL Server Execution Times:
-   CPU time = 9206 ms,  elapsed time = 1409 ms
+Slot time consumed 
+23.090 sec
 
 */
 
@@ -64,7 +67,9 @@ LIMIT 10;
 
 /*
 1. Query complete (2.7 sec elapsed, 573.1 MB processed)
-
+	
+Slot time consumed 
+21.649 sec
 */
 
 --6
@@ -75,8 +80,9 @@ LIMIT 10;
 /*
 1... Query complete (1.0 sec elapsed, 9.3 GB processed)
 
-2...  SQL Server Execution Times:
-   CPU time = 0 ms,  elapsed time = 14 ms.
+2...  	
+Slot time consumed 
+4.050 sec
 
 */
 
@@ -164,6 +170,16 @@ WHERE username = 'lholloway';
 
 Slot time consumed 
 3.899 sec
+
+SELECT *
+FROM `otus-clickhouse-comparsion.otus.test` 
+WHERE username = 'lholloway';
+
+Elapsed time
+5.5 sec
+Slot time consumed 
+1 min 15.298 sec
+
 */
 
 --12. Количество договоров сотрудника
